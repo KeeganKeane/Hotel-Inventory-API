@@ -1,15 +1,15 @@
-# inventory-api
-**Overview: **
+# Hotel Inventory API
+### Overview:
 
 This project is a Hotel Inventory RESTful API designed to create hotels and associated reservations. The user can create a hotel, search for available hotels, search for all hotels within the database, all reservations within the database, make reservations to a specific hotel, delete reservations as well as hotels. Necessarry validation is incorporated within the API that prevents illogical operations from occuring such as making an overlapping reservation to a hotel or deleting a hotel that contains reservations.
 
-The inventory-api follows a standard "User <-> Controller <-> Validator (Only interacts with Controller) <-> Service <-> Repository <-> Database" API schema. Where the data flows down from the User to the database and then back to the User. 
+The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (Only interacts with Controller) <-> Service <-> Repository <-> Database" API schema. Where the data flows down from the User to the database and then back to the User. 
 
-**Detailed Overview: **
+### Detailed Overview:
 
-****Valid API Calls: ****
+#### Valid API Calls: 
 
-****  Use Case: Create Hotel/Inventory ****
+##### Use Case: Create Hotel/Inventory 
   - Endpoint: /inventories
   - Verb: POST
   - Description: Create a hotel inventory object. 
@@ -28,7 +28,7 @@ The inventory-api follows a standard "User <-> Controller <-> Validator (Only in
       "availableTo" : "YYYY-MM-DD" 
       }
 
-****  Use Case: Update a hotel inventory object****
+#####  Use Case: Update a hotel inventory object
   - Endpoint: /inventories
   - Verb: PATCH
   - Description: Updates an existing hotel inventory object.
@@ -49,7 +49,7 @@ The inventory-api follows a standard "User <-> Controller <-> Validator (Only in
       "availableTo" : "YYYY-MM-DD" 
       }
 
-****  Use Case: Get a user specific hotel inventory object. ****
+#####  Use Case: Get a user specific hotel inventory object
   - Endpoint: /inventories/{id}
   - Verb: GET
   - Description: Get a user specified inventory object. 
@@ -58,7 +58,7 @@ The inventory-api follows a standard "User <-> Controller <-> Validator (Only in
   -  Request Body: 
     -  N/A
 
-****  Use Case: Get all existing hotel inventories ****
+#####  Use Case: Get all existing hotel inventories 
   - Endpoint: /inventories
   - Verb: GET
   - Description: Get all existing hotel inventories 
@@ -67,7 +67,7 @@ The inventory-api follows a standard "User <-> Controller <-> Validator (Only in
   -  Request Body: 
     -  N/A
 
-****  Use Case: Delete a user specified hotel inventory. ****
+#####  Use Case: Delete a user specified hotel inventory
   - Endpoint: /inventories/{id}
   - Verb: DELETE
   - Description: 
@@ -77,7 +77,7 @@ The inventory-api follows a standard "User <-> Controller <-> Validator (Only in
   - Request Body: 
     -  Path Variable Integer "id" 
 
-****  Use Case: Create a reservation****
+#####  Use Case: Create a reservation
   - Endpoint: /reservations
   - Verb: POST
   - Description: Creates a hotel reservation with an existing hotel inventory. 
@@ -96,7 +96,7 @@ The inventory-api follows a standard "User <-> Controller <-> Validator (Only in
     "guests": Integer
     }
 
-****  Use Case: Get all reservations. ****
+#####  Use Case: Get all reservations
   - Endpoint: /reservations
   - Verb: GET
   - Description: Get all exsiting hotel reservations. 
@@ -106,7 +106,7 @@ The inventory-api follows a standard "User <-> Controller <-> Validator (Only in
     - N/A
 
 
-****  Use Case: Get a specified hotel reservation. ****
+#####  Use Case: Get a specified hotel reservation
   - Endpoint: /reservations/{id}
   - Verb: GET
   - Description: Get an exsiting user specified Hotel reservation 
@@ -115,7 +115,7 @@ The inventory-api follows a standard "User <-> Controller <-> Validator (Only in
   - Request Body: 
     -  Path variable Integer "id"
 
-****  Use Case: Delete a user specified reservation. ****
+#####  Use Case: Delete a user specified reservation
   - Endpoint: /reservations/{id}
   - Verb: DELETE
   - Description: Delete an existing user specified reservation. 
@@ -124,7 +124,7 @@ The inventory-api follows a standard "User <-> Controller <-> Validator (Only in
   - Request Body: 
     - Path variable Integer "id" 
 
-****  Use Case: Get all available hotel inventories. ****
+#####  Use Case: Get all available hotel inventories
   - Endpoint: /inventories/availabilitySearch?dateFrom={from}&dateTo={to}
   - Verb: GET
   - Description: Gets all available hotel inventories between specified dates. This endpoint takes into account pre-exisiting reservations and hotel availability dates and only returns hotel inventories that do not have overlapping reservations and do not have availibility dates that start or end between the user specified dates. 
@@ -135,7 +135,7 @@ The inventory-api follows a standard "User <-> Controller <-> Validator (Only in
   - Request Body: 
     - Path Variables dateTo and dateFrom, in YYYY-MM-DD format
 
-**Database**
+#### Database
   The relational database I used for this project was created using SQL using mySQL. The database structure contains two tables, an Inventory table that contains the hotel inventory object and a Reservations table. The Reservations table contains reservations objects and is associated with the Inventory table through the Inventory table's Id by storing it as a foreign key in its "Inventory Id" value. The table structures and values are as follows: 
  
   - Inventory 
@@ -184,10 +184,10 @@ ALTER TABLE RESERVATION
 ADD CONSTRAINT unique_reservation
 UNIQUE (INVENTORY_ID, DT_CHECK_IN, DT_CHECK_OUT, STATUS);
   
-**Testing **
+#### Testing 
   The tests I created for this project incorporated both JUNit and Integration tests. I used Mockito is several unit tests and H2 in memory databases for the integration tests. More elaborate descriptions of the tests and their functionalities can be found in the test folder within this project. 
 
-**Tech Stack: **
+#### Tech Stack:
 
 - API Creation:
   - Java
