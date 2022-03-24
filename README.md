@@ -20,13 +20,15 @@ The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (O
     - availableTo date comes before availableFrom date
     - Name is null 
   - Request Body: 
-      { 
-      "name" : "String", 
-      "type" : String(LUXURY, DELUXE, SUITE), 
-      "description" : String,   
-      "availableFrom" : "YYYY-MM-DD", 
-      "availableTo" : "YYYY-MM-DD" 
-      }
+     ```javascript
+        { 
+        "name" : "String", 
+        "type" : String(LUXURY, DELUXE, SUITE), 
+        "description" : String,   
+        "availableFrom" : "YYYY-MM-DD", 
+        "availableTo" : "YYYY-MM-DD" 
+        }
+     ```
 
 #####  Use Case: Update a hotel inventory object
   - Endpoint: /inventories
@@ -40,14 +42,16 @@ The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (O
     - availableTo date comes before availableFrom date
     - Name is null 
     - Request Body: 
-      { 
-      "id" : Integer, 
-      "name" : "String", 
-      "type" : String(LUXURY, DELUXE, SUITE), 
-      "description" : String,   
-      "availableFrom" : "YYYY-MM-DD", 
-      "availableTo" : "YYYY-MM-DD" 
-      }
+     ```javascript
+        { 
+          "id" : Integer, 
+          "name" : "String", 
+          "type" : String(LUXURY, DELUXE, SUITE), 
+          "description" : String,   
+          "availableFrom" : "YYYY-MM-DD", 
+          "availableTo" : "YYYY-MM-DD" 
+        }
+      ```
 
 #####  Use Case: Get a user specific hotel inventory object
   - Endpoint: /inventories/{id}
@@ -55,8 +59,7 @@ The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (O
   - Description: Get a user specified inventory object. 
   - Validation (Throws an InvalidRequestException when): 
     -  ID does not exist 
-  -  Request Body: 
-    -  N/A
+  -  Request Body: N/A
 
 #####  Use Case: Get all existing hotel inventories 
   - Endpoint: /inventories
@@ -64,8 +67,7 @@ The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (O
   - Description: Get all existing hotel inventories 
   - Validation (Throws an InvalidRequestException when): 
     - N/A
-  -  Request Body: 
-    -  N/A
+  -  Request Body: N/A
 
 #####  Use Case: Delete a user specified hotel inventory
   - Endpoint: /inventories/{id}
@@ -89,12 +91,14 @@ The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (O
     - Number of guests is not an Integer 
     - A reservation object with overlapping dates already exists for the hotel inventory object
   - Request Body: 
-    - {
-    "inventoryId": Integer (existing hotel inventory id),
-    "checkIn": "YYYY-MM-DD",
-    "checkOut": "YYYY-MM-DD",
-    "guests": Integer
-    }
+    ```javascript 
+      {
+        "inventoryId": Integer (existing hotel inventory id),
+        "checkIn": "YYYY-MM-DD",
+        "checkOut": "YYYY-MM-DD",
+        "guests": Integer
+      } 
+    ```
 
 #####  Use Case: Get all reservations
   - Endpoint: /reservations
@@ -102,8 +106,7 @@ The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (O
   - Description: Get all exsiting hotel reservations. 
   - Validation (Throws an InvalidRequestException when): 
     - N/A
-  -  Request Body: 
-    - N/A
+  -  Request Body: N/A
 
 
 #####  Use Case: Get a specified hotel reservation
@@ -156,7 +159,7 @@ The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (O
   
   The database was created with the commands as follows: 
   
-  
+```sql
 DROP TABLE INVENTORY IF EXISTS;
 DROP TABLE RESERVATION IF EXISTS;
  
@@ -183,6 +186,7 @@ CREATE TABLE RESERVATION (
 ALTER TABLE RESERVATION
 ADD CONSTRAINT unique_reservation
 UNIQUE (INVENTORY_ID, DT_CHECK_IN, DT_CHECK_OUT, STATUS);
+```
   
 #### Testing 
   The tests I created for this project incorporated both JUNit and Integration tests. I used Mockito is several unit tests and H2 in memory databases for the integration tests. More elaborate descriptions of the tests and their functionalities can be found in the test folder within this project. 
