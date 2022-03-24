@@ -23,8 +23,8 @@ The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (O
      ```javascript
         { 
         "name" : "String", 
-        "type" : String(LUXURY, DELUXE, SUITE), 
-        "description" : String,   
+        "type" : "String: (LUXURY, DELUXE, SUITE)", 
+        "description" : "String",   
         "availableFrom" : "YYYY-MM-DD", 
         "availableTo" : "YYYY-MM-DD" 
         }
@@ -46,8 +46,8 @@ The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (O
         { 
           "id" : Integer, 
           "name" : "String", 
-          "type" : String(LUXURY, DELUXE, SUITE), 
-          "description" : String,   
+          "type" : "String: (LUXURY, DELUXE, SUITE)", 
+          "description" : "String",   
           "availableFrom" : "YYYY-MM-DD", 
           "availableTo" : "YYYY-MM-DD" 
         }
