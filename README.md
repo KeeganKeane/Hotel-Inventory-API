@@ -1,7 +1,7 @@
 # Hotel Inventory API
 ### Overview:
 
-This project is a Hotel Inventory RESTful API designed to create hotels and associated reservations. The user can create a hotel, search for available hotels, search for all hotels within the database, all reservations within the database, make reservations to a specific hotel, delete reservations as well as hotels. Necessarry validation is incorporated within the API that prevents illogical operations from occuring such as making an overlapping reservation to a hotel or deleting a hotel that contains reservations.
+This project is a Hotel Inventory RESTful API designed to create hotels and associated reservations. The user can create a hotel, search for available hotels, search for all hotels within the database, all reservations within the database, make reservations to a specific hotel, delete reservations as well as hotels. Necessary validation is incorporated within the API that prevents illogical operations from occurring such as making an overlapping reservation to a hotel or deleting a hotel that contains reservations.
 
 The Hotel-Inventory-API follows a standard "User <-> Controller <-> Validator (Only interacts with Controller) <-> Service <-> Repository <-> Database" API schema. Where the data flows down from the User to the database and then back to the User. 
 
