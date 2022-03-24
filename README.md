@@ -189,7 +189,7 @@ UNIQUE (INVENTORY_ID, DT_CHECK_IN, DT_CHECK_OUT, STATUS);
 ```
   
 #### Testing 
-  The tests I created for this project incorporated both JUNit and Integration tests. I used Mockito is several unit tests and H2 in memory databases for the integration tests. More elaborate descriptions of the tests and their functionalities can be found in the test folder within this project. 
+  The tests I created for this project incorporated both JUNit and Integration tests. I used Mockito is several unit tests and H2 in memory databases for the integration tests. Coverage testing for this project covered 93% of classes, 94% of methodsand 85% of lines. More elaborate descriptions of the tests and their functionalities can be found in the test folder within this project. 
 
 #### Tech Stack:
 
